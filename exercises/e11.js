@@ -5,9 +5,21 @@ import { data } from "../data/data";
 // include planets with 0 moons
 // Return example: ['name1', 'name2', ... , 'nameN']
 
+
 export function lowMoonsPlanets(data) {
-  // Your code goes here...
+  
+  const planetsArray = data.planets;
+
+  const planetsWithLessThanTenMoons = planetsArray.filter(planets => 
+  (planets.moonsCount !== undefined && planets.moonsCount < 10) || planets.moonsCount === undefined
+  );
+
+  const planetNames = planetsWithLessThanTenMoons.map(planets => planets.name);
+
+  return planetNames;
 }
+
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"
