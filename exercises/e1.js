@@ -6,21 +6,8 @@ import { data } from "../data/data.js";
 
 export function getPlanetNames(array) {
   
-  const planetData = [
-    {name: 'Uranus'},
-    {name: 'Neptune'},
-    {name: 'Jupiter'},
-    {name: 'Mars'},
-    {name: 'Mercure'},
-    {name: 'Saturne'},
-    {name: 'Earth'},
-    {name: 'Vénus'},
-  ];
-
-  const planetNames = planetData.map(planet => planet.name);
-
-
-  return planetNames; 
+  return data.planets.map(planets => planets.name);
+  
 }
 
 

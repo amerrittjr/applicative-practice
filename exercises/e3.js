@@ -6,17 +6,8 @@
 import {data} from '../data/data.js';
 
 export function getAllAverageTemperatures(data) {
-
-  const planetsArray = data.planets;
-
-  const onlyPlanets = planetsArray.filter(planet => planet.isPlanet);
-
-  const totalTemp = onlyPlanets.reduce((sum, planet) => sum + planet.avgTemp, 0);
-
-  const averageTemp = onlyPlanets.map(planet => planet.avgTemp);
-
-  return averageTemp;
-};
+  return data.planets.map(planets => planets.avgTemp);
+}
 
 
 
