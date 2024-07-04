@@ -9,41 +9,13 @@
  */
 
 export function minBy(array, cb) {
-
-    if (array.length === 0) return undefined;
-    
-    let minValue = cb(array[0]);
-    let minElement = array[0];
-    
-    for (let i = 1; i < array.length; i++) {
-      const currentValue = cb(array[i]);
-      if (currentValue < minValue) {
-        minValue = currentValue;
-        minElement = array[i];
-      }
-    }
-    
-    return minElement;
-  
+  return array.length === 0 ? undefined : array.reduce((minElement, current) => cb(current) < cb(minElement) ? current : minElement, array[0]);
 }
 
 export function maxBy(array, cb) {
-  
-  if (array.length === 0) return undefined;
-  
-  let maxValue = cb(array[0]);
-  let maxElement = array[0];
-  
-  for (let i = 1; i < array.length; i++) {
-    const currentValue = cb(array[i]);
-    if (currentValue > maxValue) {
-      maxValue = currentValue;
-      maxElement = array[i];
-    }
-  }
-  
-  return maxElement;
+  return array.length === 0 ? undefined : array.reduce((maxElement, current) => cb(current) > cb(maxElement) ? current : maxElement, array[0]);
 }
+
 
 
 // === TEST YOURSELF ===

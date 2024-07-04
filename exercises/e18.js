@@ -5,16 +5,9 @@
  */
 
 export function getGreatestDiscoveryYear(data) {
-  const asteroidsArray = data.asteroids;
-
-  const result = asteroidsArray.reduce((accumulator, asteroid) => {
+  return data.asteroids.reduce((accumulator, asteroid) => {
     const year = asteroid.discoveryYear;
-
-    if (!accumulator.counts[year]) {
-      accumulator.counts[year] = 1;
-    } else {
-      accumulator.counts[year]++;
-    }
+    accumulator.counts[year] = (accumulator.counts[year] || 0) + 1;
 
     if (accumulator.counts[year] > accumulator.maxCount) {
       accumulator.maxCount = accumulator.counts[year];
@@ -22,10 +15,9 @@ export function getGreatestDiscoveryYear(data) {
     }
 
     return accumulator;
-  }, { counts: {}, maxCount: 0, maxYear: null });
-
-  return result.maxYear;
+  }, { counts: {}, maxCount: 0, maxYear: null }).maxYear;
 }
+
 
 
   
